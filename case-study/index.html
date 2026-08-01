@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study: One Cavite Pickleball Club — James Castillo</title>
+<meta name="description" content="Full breakdown of how I designed and built a complete club management platform for One Cavite Pickleball Club — every page, workflow, and architectural decision.">
+<link rel="stylesheet" href="/styles.css">
+<style>
+  .cs-hero{ padding:56px 0 40px; max-width:820px; }
+  .cs-hero .eyebrow{ margin-bottom:18px; }
+  .cs-hero h1{ font-size:clamp(34px,5vw,54px); letter-spacing:-0.015em; line-height:1.08; margin-bottom:20px; }
+  .cs-hero p.lede{ font-size:17px; color:var(--ink-soft); line-height:1.7; max-width:640px; }
+  .cs-meta-row{ display:flex; gap:32px; flex-wrap:wrap; margin-top:32px; padding-top:28px; border-top:1px solid var(--line); }
+  .cs-meta-row div{ font-family:var(--font-mono); font-size:10.5px; letter-spacing:0.05em; text-transform:uppercase; color:var(--ink-faint); }
+  .cs-meta-row b{ display:block; font-family:var(--font-body); font-size:14px; font-weight:600; color:var(--ink); text-transform:none; letter-spacing:0; margin-top:4px; }
+
+  .cs-hero-img{ border-radius:16px; overflow:hidden; border:1px solid var(--line); margin:32px 0 0; box-shadow:0 24px 48px rgba(20,46,34,0.12); }
+  .cs-hero-img img{ width:100%; display:block; }
+
+  /* two-col problem/approach */
+  .cs-split{ display:grid; grid-template-columns:1fr 1fr; gap:40px; }
+  .cs-split-card{ background:var(--card); border:1px solid var(--line); border-radius:14px; padding:32px; }
+  .cs-split-card .tag{ font-family:var(--font-mono); font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:var(--forest-light); margin-bottom:14px; }
+  .cs-split-card h3{ font-size:20px; margin-bottom:14px; }
+  .cs-split-card p{ font-size:14.5px; color:var(--ink-soft); line-height:1.75; margin-bottom:12px; }
+  .cs-split-card ul{ margin:0; padding-left:20px; }
+  .cs-split-card li{ font-size:14px; color:var(--ink-soft); line-height:1.8; }
+  @media (max-width:800px){ .cs-split{ grid-template-columns:1fr; } }
+
+  /* feature breakdown accordion-ish list */
+  .feature-block{ border-top:1.5px solid var(--line); padding:36px 0; }
+  .feature-block:last-child{ border-bottom:1.5px solid var(--line); }
+  .feature-block-head{ display:flex; align-items:baseline; gap:16px; margin-bottom:16px; flex-wrap:wrap; }
+  .feature-num{ font-family:var(--font-mono); font-size:13px; color:var(--forest-light); font-weight:700; }
+  .feature-block h3{ font-size:22px; }
+  .feature-block-grid{ display:grid; grid-template-columns:1fr 1fr; gap:32px; margin-top:8px; }
+  .feature-block p.desc{ font-size:14.5px; color:var(--ink-soft); line-height:1.75; margin-bottom:16px; }
+  .feature-tags{ display:flex; flex-wrap:wrap; gap:8px; }
+  .feature-tag{
+    font-family:var(--font-mono); font-size:11px; padding:5px 12px; border-radius:100px;
+    background:var(--paper-dim); color:var(--ink-soft); border:1px solid var(--line);
+  }
+  .feature-img{ border-radius:12px; overflow:hidden; border:1px solid var(--line); align-self:start; }
+  @media (max-width:800px){ .feature-block-grid{ grid-template-columns:1fr; } .feature-img{ order:-1; } }
+
+  /* page list */
+  .page-list{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+  .page-item{ background:var(--card); border:1px solid var(--line); border-radius:10px; padding:18px 20px; }
+  .page-item .name{ font-weight:600; font-size:14px; margin-bottom:4px; }
+  .page-item .desc{ font-size:12.5px; color:var(--ink-faint); line-height:1.5; }
+  @media (max-width:800px){ .page-list{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:520px){ .page-list{ grid-template-columns:1fr; } }
+
+  /* stack */
+  .stack-row{ display:flex; flex-wrap:wrap; gap:10px; }
+  .stack-chip{
+    font-family:var(--font-mono); font-size:12.5px; font-weight:600;
+    padding:9px 16px; border-radius:100px; background:var(--forest-deep); color:var(--paper);
+  }
+
+  /* results */
+  .result-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+  .result-card{ background:var(--forest); color:var(--paper); border-radius:14px; padding:26px 20px; text-align:center; }
+  .result-card .n{ font-family:var(--font-display); font-size:32px; }
+  .result-card .l{ font-family:var(--font-mono); font-size:10px; letter-spacing:0.05em; text-transform:uppercase; color:rgba(247,243,234,0.65); margin-top:6px; }
+  @media (max-width:800px){ .result-grid{ grid-template-columns:1fr 1fr; } }
+
+  .quote-block{
+    max-width:720px; margin:0 auto; text-align:center;
+  }
+  .quote-block blockquote{
+    font-family:var(--font-display); font-style:italic; font-size:clamp(20px,2.6vw,28px);
+    line-height:1.5; color:var(--ink); margin-bottom:16px;
+  }
+  .quote-block cite{ font-family:var(--font-mono); font-size:12px; letter-spacing:0.04em; text-transform:uppercase; color:var(--ink-faint); font-style:normal; }
+
+  .cta-final{ background:var(--forest-deep); color:var(--paper); border-radius:16px; padding:52px 44px; text-align:center; }
+  .cta-final h2{ font-size:clamp(26px,3.4vw,36px); color:var(--paper); margin-bottom:16px; }
+  .cta-final p{ font-size:15px; color:rgba(247,243,234,0.78); max-width:520px; margin:0 auto 28px; line-height:1.7; }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a class="nav-brand" href="/">
+      <span class="nav-brand-mark">JC</span>
+      <span class="nav-brand-name">James Castillo</span>
+    </a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/case-study/" class="active">Case Study</a>
+      <a href="/services/">Services</a>
+      <a href="/contact/">Contact</a>
+    </div>
+    <a class="nav-cta" href="/contact/">Let's Talk</a>
+    <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <div class="cs-hero reveal">
+    <span class="eyebrow">Break Through Case Study</span>
+    <h1>How I built a complete club platform for One Cavite Pickleball Club — from scratch.</h1>
+    <p class="lede">A fast-growing pickleball club in Cavite, Philippines, was running on Google Forms, group chats, and spreadsheets. I designed and built a full web platform to replace all of it — membership, commerce, attendance, and an admin backend the club actually controls.</p>
+
+    <div class="cs-meta-row">
+      <div>Role<b>Sole Designer &amp; Developer</b></div>
+      <div>Timeline<b>Ongoing, Iterative Builds</b></div>
+      <div>Stack<b>Firebase, Vanilla JS, Cloudinary</b></div>
+      <div>Live Site<b><a href="https://www.onecavitepickleball.club" target="_blank" rel="noopener" style="color:var(--forest); text-decoration:underline;">onecavitepickleball.club ↗</a></b></div>
+    </div>
+  </div>
+
+  <div class="cs-hero-img reveal">
+    <img src="/assets/screenshots/home_crop.jpg" alt="One Cavite Pickleball Club homepage">
+  </div>
+
+  <div class="section">
+    <div class="cs-split reveal">
+      <div class="cs-split-card">
+        <div class="tag">The Problem</div>
+        <h3>Growth had outpaced the tools.</h3>
+        <p>OCPC started the way most community clubs do — a Facebook group and word of mouth. But as membership grew past 30 active players, the cracks showed:</p>
+        <ul>
+          <li>Signups and merch orders both ran through separate Google Forms with no connection to each other</li>
+          <li>Attendance was tracked manually, with no reliable way to rank or reward regular players</li>
+          <li>Merch payments had to be verified by hand, with no record of who'd paid or what shipped</li>
+          <li>There was no admin view of the club — no membership list, no order history, nothing centralized</li>
+        </ul>
+      </div>
+      <div class="cs-split-card">
+        <div class="tag">The Approach</div>
+        <h3>Systems thinking, applied to code.</h3>
+        <p>I approached this exactly like I would a business operations audit — map every real workflow first, then decide what needed automating versus what needed to be built outright.</p>
+        <p>Google Forms couldn't be configured into what OCPC actually needed. So instead of duct-taping more forms and spreadsheets together, I designed and built a real application: player accounts, a live shop, attendance-driven leaderboards, and an admin dashboard non-technical club officers could run themselves.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:0;">
+    <div class="section-head reveal">
+      <span class="eyebrow">What Was Built</span>
+      <h2>A full-featured platform, page by page.</h2>
+      <p>Every feature below is live in production — not a prototype.</p>
+    </div>
+
+    <div class="feature-block reveal">
+      <div class="feature-block-head">
+        <span class="feature-num">01</span>
+        <h3>Public Marketing Site</h3>
+      </div>
+      <div class="feature-block-grid">
+        <div>
+          <p class="desc">A live homepage with the week's open-play schedule, a countdown to the next session, a real-time player spotlight pulled from attendance data, and an auto-rotating events section that archives past events by date without any manual editing.</p>
+          <div class="feature-tags">
+            <span class="feature-tag">Meet the Club (dynamic roster)</span>
+            <span class="feature-tag">Events (auto-archiving)</span>
+            <span class="feature-tag">Gallery</span>
+            <span class="feature-tag">Rules &amp; Etiquette</span>
+            <span class="feature-tag">Birthdays</span>
+            <span class="feature-tag">Featured Courts</span>
+          </div>
+        </div>
+        <div class="feature-img">
+          <img src="/assets/screenshots/home_crop.jpg" alt="OCPC homepage schedule and spotlight">
+        </div>
+      </div>
+    </div>
+
+    <div class="feature-block reveal">
+      <div class="feature-block-head">
+        <span class="feature-num">02</span>
+        <h3>Full Commerce Flow</h3>
+      </div>
+      <div class="feature-block-grid">
+        <div>
+          <p class="desc">Replaced a single-item Google Form order process with a real cart-based shop: browse products, add multiple items, review the cart, then check out once with cascading Philippine address fields, GCash/bank QR payment, discount codes, and proof-of-payment upload. Every order gets a sequential order number and an automatic email confirmation — and buyers can check payment/fulfillment status themselves without logging in.</p>
+          <div class="feature-tags">
+            <span class="feature-tag">Product Catalog</span>
+            <span class="feature-tag">Cart (localStorage)</span>
+            <span class="feature-tag">Checkout</span>
+            <span class="feature-tag">Discount Codes</span>
+            <span class="feature-tag">Order Tracking Page</span>
+            <span class="feature-tag">Email Confirmations</span>
+          </div>
+        </div>
+        <div class="feature-img">
+          <img src="/assets/screenshots/merch_crop.jpg" alt="OCPC merch shop catalog">
+        </div>
+      </div>
+    </div>
+
+    <div class="feature-block reveal">
+      <div class="feature-block-head">
+        <span class="feature-num">03</span>
+        <h3>Attendance &amp; Leaderboard</h3>
+      </div>
+      <div class="feature-block-grid">
+        <div>
+          <p class="desc">Officers log attendance by name; the system ranks the top players over a rolling 4-week window and shows each player their own stats, rank, and how many more sessions they need to move up. Real-world data is messy — people go by nicknames, shortened names, or names that don't match their registered account — so I built a reconciliation system that automatically merges obvious matches and lets admins manually link the rest, without ever touching raw attendance records.</p>
+          <div class="feature-tags">
+            <span class="feature-tag">Rolling Leaderboard</span>
+            <span class="feature-tag">Nickname/Alias Matching</span>
+            <span class="feature-tag">Player Profile Stats</span>
+            <span class="feature-tag">Auto Name Reconciliation</span>
+          </div>
+        </div>
+        <div class="feature-img">
+          <img src="/assets/screenshots/leaderboard_crop.jpg" alt="OCPC leaderboard podium">
+        </div>
+      </div>
+    </div>
+
+    <div class="feature-block reveal">
+      <div class="feature-block-head">
+        <span class="feature-num">04</span>
+        <h3>Player Accounts</h3>
+      </div>
+      <div class="feature-block-grid">
+        <div>
+          <p class="desc">Free self-service signup with optional profile photo, a personal dashboard showing lifetime stats, an 8-week attendance chart, order history, and editable profile details including a preferred nickname — all backed by Firebase Authentication.</p>
+          <div class="feature-tags">
+            <span class="feature-tag">Self-Service Signup</span>
+            <span class="feature-tag">Profile Dashboard</span>
+            <span class="feature-tag">Order History</span>
+            <span class="feature-tag">Attendance Chart</span>
+          </div>
+        </div>
+        <div class="feature-img">
+          <img src="/assets/screenshots/leaderboard_crop.jpg" alt="OCPC player stats">
+        </div>
+      </div>
+    </div>
+
+    <div class="feature-block reveal">
+      <div class="feature-block-head">
+        <span class="feature-num">05</span>
+        <h3>Admin Backend</h3>
+      </div>
+      <div class="feature-block-grid">
+        <div>
+          <p class="desc">A full dashboard for club officers to run everything without ever touching code: order management with payment-proof thumbnails and status controls, coaching request handling, discount code creation, attendance recording, member approval and role management, and a settings panel to toggle a site-wide announcement banner on or off. Every order placed in one checkout is grouped together, so officers can see at a glance which products belong to the same purchase.</p>
+          <div class="feature-tags">
+            <span class="feature-tag">Orders Dashboard</span>
+            <span class="feature-tag">Member Management</span>
+            <span class="feature-tag">Attendance Recording</span>
+            <span class="feature-tag">Discount Codes</span>
+            <span class="feature-tag">Site Settings</span>
+            <span class="feature-tag">Email Notifications</span>
+          </div>
+        </div>
+        <div class="feature-img">
+          <img src="/assets/screenshots/merch_crop.jpg" alt="OCPC shop, source for admin order data">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:0;">
+    <div class="section-head reveal">
+      <span class="eyebrow">Every Page, At a Glance</span>
+      <h2>12+ pages, one consistent system.</h2>
+    </div>
+    <div class="page-list reveal">
+      <div class="page-item"><div class="name">Home</div><div class="desc">Schedule, countdown, spotlight, events</div></div>
+      <div class="page-item"><div class="name">Meet the Club</div><div class="desc">Dynamic roster + leadership</div></div>
+      <div class="page-item"><div class="name">Events</div><div class="desc">Auto-archiving past/upcoming</div></div>
+      <div class="page-item"><div class="name">Shop</div><div class="desc">Product catalog</div></div>
+      <div class="page-item"><div class="name">Cart &amp; Checkout</div><div class="desc">Multi-item order flow</div></div>
+      <div class="page-item"><div class="name">Track Order</div><div class="desc">Public status lookup</div></div>
+      <div class="page-item"><div class="name">Leaderboard</div><div class="desc">Attendance rankings</div></div>
+      <div class="page-item"><div class="name">Profile</div><div class="desc">Player dashboard</div></div>
+      <div class="page-item"><div class="name">Coaching</div><div class="desc">Booking + payment</div></div>
+      <div class="page-item"><div class="name">Featured Courts</div><div class="desc">Partnership pitch page</div></div>
+      <div class="page-item"><div class="name">Join / Sign Up</div><div class="desc">Account creation</div></div>
+      <div class="page-item"><div class="name">Admin Dashboard</div><div class="desc">6-tab officer backend</div></div>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:0;">
+    <div class="section-head reveal">
+      <span class="eyebrow">Under the Hood</span>
+      <h2>A deliberately lean stack.</h2>
+      <p>No framework overhead, no unnecessary dependencies — chosen for speed to ship and low ongoing cost, the same way I'd choose tools for any operations build.</p>
+    </div>
+    <div class="stack-row reveal">
+      <span class="stack-chip">HTML / CSS / Vanilla JS</span>
+      <span class="stack-chip">Firebase Authentication</span>
+      <span class="stack-chip">Firestore (NoSQL DB)</span>
+      <span class="stack-chip">Firestore Security Rules</span>
+      <span class="stack-chip">Cloudinary (image hosting)</span>
+      <span class="stack-chip">EmailJS (transactional email)</span>
+      <span class="stack-chip">Service Worker Caching</span>
+      <span class="stack-chip">GitHub Pages Hosting</span>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:0;">
+    <div class="section-head reveal">
+      <span class="eyebrow">The Result</span>
+      <h2>Zero forms. Zero spreadsheets. One system.</h2>
+    </div>
+    <div class="result-grid reveal">
+      <div class="result-card"><div class="n">36+</div><div class="l">Active Members</div></div>
+      <div class="result-card"><div class="n">205+</div><div class="l">Check-Ins Tracked</div></div>
+      <div class="result-card"><div class="n">4x</div><div class="l">Sessions / Week</div></div>
+      <div class="result-card"><div class="n">0</div><div class="l">Google Forms Remaining</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="quote-block reveal">
+      <blockquote>"The same instinct that fixes a messy sales pipeline is the instinct that fixes a messy club sign-up process — see the real workflow, then build the smallest system that actually works."</blockquote>
+      <cite>— James Castillo</cite>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:0;">
+    <div class="cta-final reveal">
+      <span class="eyebrow" style="color:var(--gold);">Want Something Like This?</span>
+      <h2>Let's talk about what your operation actually needs.</h2>
+      <p>Whether that's a properly configured CRM or a fully custom platform like this one — I'll tell you honestly which one it is.</p>
+      <a class="btn btn-primary" href="/contact/">Start the Conversation →</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <div class="foot-brand">James Castillo</div>
+        <div class="foot-brand-sub">Systems &amp; automation specialist, and builder of custom software when off-the-shelf tools aren't enough.</div>
+      </div>
+      <div class="foot-links">
+        <a href="/">Home</a>
+        <a href="/case-study/">Case Study</a>
+        <a href="/services/">Services</a>
+        <a href="/contact/">Contact</a>
+        <a href="https://www.linkedin.com/in/jeymskastilyo/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 James Castillo</span>
+      <span>Based remotely · Working with clients in PH, US, Canada &amp; Australia</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services — James Castillo</title>
+<meta name="description" content="Systems &amp; automation for businesses that need better processes. Custom web &amp; software development for businesses that need something off-the-shelf tools can't do.">
+<link rel="stylesheet" href="/styles.css">
+<style>
+  .sv-hero{ padding:56px 0 48px; max-width:720px; }
+  .sv-hero h1{ font-size:clamp(34px,5vw,52px); letter-spacing:-0.015em; line-height:1.08; margin:18px 0 18px; }
+  .sv-hero p{ font-size:16.5px; color:var(--ink-soft); line-height:1.7; }
+
+  .offer{ border-top:1.5px solid var(--line); padding:56px 0; display:grid; grid-template-columns:0.9fr 1.1fr; gap:56px; }
+  .offer:last-of-type{ border-bottom:1.5px solid var(--line); }
+  .offer-num{ font-family:var(--font-mono); font-size:13px; color:var(--forest-light); font-weight:700; margin-bottom:14px; display:block; }
+  .offer h2{ font-size:clamp(24px,3vw,32px); margin-bottom:14px; }
+  .offer .offer-sub{ font-size:14.5px; color:var(--ink-soft); line-height:1.7; margin-bottom:20px; }
+  .offer-price{ display:inline-flex; align-items:baseline; gap:8px; font-family:var(--font-mono); background:var(--paper-dim); padding:12px 18px; border-radius:10px; }
+  .offer-price .amt{ font-family:var(--font-display); font-size:26px; color:var(--forest); }
+  .offer-price .note{ font-size:11.5px; color:var(--ink-faint); text-transform:uppercase; letter-spacing:0.04em; }
+
+  .offer-list{ display:flex; flex-direction:column; gap:0; }
+  .offer-item{ display:flex; gap:16px; padding:16px 0; border-top:1px solid var(--line); }
+  .offer-item:first-child{ border-top:none; }
+  .offer-item .ic{ width:34px; height:34px; border-radius:8px; background:var(--gold-soft); color:var(--gold); flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:15px; }
+  .offer-item h4{ font-size:14.5px; font-weight:700; margin-bottom:3px; }
+  .offer-item p{ font-size:13px; color:var(--ink-soft); line-height:1.6; }
+
+  @media (max-width:840px){ .offer{ grid-template-columns:1fr; gap:28px; } }
+
+  /* process steps */
+  .process-list{ counter-reset:step; display:flex; flex-direction:column; }
+  .process-item{ display:grid; grid-template-columns:64px 1fr; gap:20px; padding:26px 0; border-top:1px solid var(--line); }
+  .process-item:last-child{ border-bottom:1px solid var(--line); }
+  .process-num{ font-family:var(--font-display); font-size:28px; color:var(--forest-light); }
+  .process-item h4{ font-size:16px; margin-bottom:6px; }
+  .process-item p{ font-size:14px; color:var(--ink-soft); line-height:1.7; max-width:560px; }
+
+  .faq-item{ border-top:1px solid var(--line); padding:22px 0; }
+  .faq-item:last-child{ border-bottom:1px solid var(--line); }
+  .faq-item h4{ font-size:15.5px; margin-bottom:8px; }
+  .faq-item p{ font-size:14px; color:var(--ink-soft); line-height:1.7; max-width:620px; }
+
+  .cta-final{ background:var(--forest-deep); color:var(--paper); border-radius:16px; padding:52px 44px; text-align:center; }
+  .cta-final h2{ font-size:clamp(26px,3.4vw,36px); color:var(--paper); margin-bottom:16px; }
+  .cta-final p{ font-size:15px; color:rgba(247,243,234,0.78); max-width:520px; margin:0 auto 28px; line-height:1.7; }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a class="nav-brand" href="/">
+      <span class="nav-brand-mark">JC</span>
+      <span class="nav-brand-name">James Castillo</span>
+    </a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/case-study/">Case Study</a>
+      <a href="/services/" class="active">Services</a>
+      <a href="/contact/">Contact</a>
+    </div>
+    <a class="nav-cta" href="/contact/">Let's Talk</a>
+    <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <div class="sv-hero reveal">
+    <span class="eyebrow">Services</span>
+    <h1>Two ways I help — I'll tell you honestly which one you need.</h1>
+    <p>I'm not going to sell you a custom build if a properly configured CRM solves your problem in a week. Here's exactly what each option includes.</p>
+  </div>
+
+  <div class="offer reveal">
+    <div>
+      <span class="offer-num">01</span>
+      <h2>Systems &amp; Automation</h2>
+      <p class="offer-sub">For businesses whose backend just needs to be configured properly. This is my core practice — built on years managing operations, client workflows, and content pipelines as a Chief of Operations and Podcast Producer.</p>
+      <div class="offer-price">
+        <span class="amt">Custom Quote</span>
+        <span class="note">Based on Scope</span>
+      </div>
+    </div>
+    <div class="offer-list">
+      <div class="offer-item">
+        <div class="ic">⚙</div>
+        <div><h4>CRM Setup &amp; Optimization</h4><p>GoHighLevel configuration built around how your sales process actually works.</p></div>
+      </div>
+      <div class="offer-item">
+        <div class="ic">🔁</div>
+        <div><h4>Sales Pipeline &amp; Workflow Automation</h4><p>Automate the follow-ups, reminders, and handoffs your team currently does by hand.</p></div>
+      </div>
+      <div class="offer-item">
+        <div class="ic">📥</div>
+        <div><h4>Lead Capture &amp; Follow-Up Systems</h4><p>Stop losing leads between the crack of "got the message" and "actually responded."</p></div>
+      </div>
+      <div class="offer-item">
+        <div class="ic">📅</div>
+        <div><h4>Appointment Booking &amp; Onboarding</h4><p>Calendar automation and client onboarding flows that don't need a human to babysit them.</p></div>
+      </div>
+      <div class="offer-item">
+        <div class="ic">📋</div>
+        <div><h4>SOPs &amp; Backend Operations</h4><p>Documented, repeatable processes — so the business doesn't depend on one person remembering everything.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="offer reveal">
+    <div>
+      <span class="offer-num">02</span>
+      <h2>Custom Web &amp; Software Development</h2>
+      <p class="offer-sub">For businesses and organizations that have outgrown spreadsheets and forms, and need something built specifically for how they operate — proven with a full production platform for One Cavite Pickleball Club.</p>
+      <div class="offer-price">
+        <span class="amt">$4,000+</span>
+        <span class="note">Fully Customizable to Scope</span>
+      </div>
+    </div>
+    <div class="offer-list">
+      <div class="offer-item">
+        <div class="ic">🏗</div>
+        <div><h4>Full Custom Platforms</h4><p>Built from scratch around your actual workflows — not a template forced to fit.</p></div>
+      </div>
+      <div class="offer-item">
+        <div class="ic">👤</div>
+        <div><h4>Member &amp; Customer Portals</h4><p>Accounts, dashboards, and profiles for the people you serve.</p></div>
+      </div>
+      <div class="offer-item">
+        <div class="ic">🛒</div>
+        <div><h4>Order, Booking &amp; Membership Systems</h4><p>Cart-based commerce, scheduling, or membership management — with a real admin backend.</p></div>
+      </div>
+      <div class="offer-item">
+        <div class="ic">🎛</div>
+        <div><h4>Admin Dashboards</h4><p>So your team can run the day-to-day without ever touching code.</p></div>
+      </div>
+      <div class="offer-item">
+        <div class="ic">🏓</div>
+        <div><h4>Sports Clubs &amp; Community Orgs</h4><p>Run something like OCPC? I can build the same foundation, customized to your group.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head reveal">
+      <span class="eyebrow">How Custom Builds Work</span>
+      <h2>A straightforward process, start to finish.</h2>
+    </div>
+    <div class="process-list reveal">
+      <div class="process-item">
+        <div class="process-num">01</div>
+        <div><h4>Discovery Call</h4><p>We talk through what's actually happening in your operation — not just what you think you need built.</p></div>
+      </div>
+      <div class="process-item">
+        <div class="process-num">02</div>
+        <div><h4>Scope &amp; Quote</h4><p>You get a clear breakdown of what's being built and a fixed quote, starting at $4,000 depending on scope.</p></div>
+      </div>
+      <div class="process-item">
+        <div class="process-num">03</div>
+        <div><h4>Build</h4><p>I build in stages with regular check-ins, so you're never waiting weeks to see progress.</p></div>
+      </div>
+      <div class="process-item">
+        <div class="process-num">04</div>
+        <div><h4>Launch &amp; Handoff</h4><p>Your platform goes live, and I walk your team through running the admin side — no dependency on me to operate it.</p></div>
+      </div>
+      <div class="process-item">
+        <div class="process-num">05</div>
+        <div><h4>Ongoing Support</h4><p>Available on request for new features, fixes, or scaling as your organization grows.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:0;">
+    <div class="section-head reveal">
+      <span class="eyebrow">Common Questions</span>
+      <h2>Before you reach out.</h2>
+    </div>
+    <div class="reveal">
+      <div class="faq-item">
+        <h4>Is $4,000 the full price?</h4>
+        <p>It's the minimum for a custom build. Final pricing depends entirely on scope — a simple membership site costs less to build than a full commerce-and-admin platform like OCPC's. You'll get a fixed quote before any work starts.</p>
+      </div>
+      <div class="faq-item">
+        <h4>What if I'm not sure which service I need?</h4>
+        <p>That's normal — most people aren't sure. Book the discovery call and I'll tell you honestly whether automation solves it or you actually need something custom-built.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Do you work with clients outside the Philippines?</h4>
+        <p>Yes — I currently work with businesses across the US, Canada, Australia, and the Philippines, all remotely.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Can I see how the admin backend works before committing?</h4>
+        <p>Happy to walk you through the live OCPC admin dashboard on a call — it's gated for club officers only, so it's not publicly viewable, but I can demo it directly.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:0;">
+    <div class="cta-final reveal">
+      <span class="eyebrow" style="color:var(--gold);">Ready When You Are</span>
+      <h2>Let's figure out what your operation actually needs.</h2>
+      <p>No pressure, no generic sales pitch — just an honest conversation about your backend.</p>
+      <a class="btn btn-primary" href="/contact/">Get In Touch →</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <div class="foot-brand">James Castillo</div>
+        <div class="foot-brand-sub">Systems &amp; automation specialist, and builder of custom software when off-the-shelf tools aren't enough.</div>
+      </div>
+      <div class="foot-links">
+        <a href="/">Home</a>
+        <a href="/case-study/">Case Study</a>
+        <a href="/services/">Services</a>
+        <a href="/contact/">Contact</a>
+        <a href="https://www.linkedin.com/in/jeymskastilyo/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 James Castillo</span>
+      <span>Based remotely · Working with clients in PH, US, Canada &amp; Australia</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>James Castillo — Systems, Automation &amp; Custom Software</title>
+<meta name="description" content="I fix broken business operations — sometimes with better systems, sometimes with custom-built software. See how I built a full club platform for One Cavite Pickleball Club from scratch.">
+<meta property="og:title" content="James Castillo — Systems, Automation & Custom Software">
+<meta property="og:description" content="I fix broken business operations — sometimes with better systems, sometimes with custom-built software.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="/styles.css">
+<style>
+  .hero{ padding:64px 0 40px; }
+  .hero-grid{ display:grid; grid-template-columns:1.15fr 0.85fr; gap:56px; align-items:center; }
+  .hero h1{
+    font-size:clamp(36px, 5vw, 58px); letter-spacing:-0.015em; line-height:1.05;
+    margin:18px 0 22px;
+  }
+  .hero h1 em{ font-style:italic; color:var(--forest); }
+  .hero p.lede{ font-size:17.5px; color:var(--ink-soft); line-height:1.7; max-width:520px; margin-bottom:32px; }
+  .hero-actions{ display:flex; gap:14px; flex-wrap:wrap; }
+  .hero-photo-wrap{ position:relative; }
+  .hero-photo{
+    border-radius:16px; overflow:hidden; aspect-ratio:4/5;
+    border:1px solid var(--line); box-shadow:0 24px 48px rgba(20,46,34,0.14);
+  }
+  .hero-photo img{ width:100%; height:100%; object-fit:cover; }
+  .hero-badge{
+    position:absolute; bottom:-18px; left:-18px;
+    background:var(--card); border:1px solid var(--line); border-radius:12px;
+    padding:16px 20px; box-shadow:0 12px 28px rgba(20,46,34,0.14);
+    max-width:210px;
+  }
+  .hero-badge .n{ font-family:var(--font-display); font-size:26px; color:var(--forest); line-height:1; }
+  .hero-badge .l{ font-family:var(--font-mono); font-size:10.5px; letter-spacing:0.05em; text-transform:uppercase; color:var(--ink-faint); margin-top:4px; }
+
+  @media (max-width:900px){
+    .hero-grid{ grid-template-columns:1fr; }
+    .hero-photo-wrap{ max-width:320px; margin:0 auto; }
+  }
+
+  /* stat strip */
+  .stat-strip{
+    display:grid; grid-template-columns:repeat(4,1fr);
+    background:var(--forest); color:var(--paper);
+    border-radius:14px; overflow:hidden; margin-top:20px;
+  }
+  .stat-strip .stat{ padding:26px 20px; text-align:center; border-right:1px solid rgba(247,243,234,0.14); }
+  .stat-strip .stat:last-child{ border-right:none; }
+  .stat-strip .num{ font-family:var(--font-display); font-size:30px; color:var(--paper); }
+  .stat-strip .lbl{ font-family:var(--font-mono); font-size:10px; letter-spacing:0.06em; text-transform:uppercase; color:rgba(247,243,234,0.65); margin-top:6px; }
+  @media (max-width:700px){
+    .stat-strip{ grid-template-columns:repeat(2,1fr); }
+    .stat-strip .stat:nth-child(2){ border-right:none; }
+  }
+
+  /* thesis */
+  .thesis{ max-width:760px; }
+  .thesis blockquote{
+    font-family:var(--font-display); font-style:italic; font-weight:500;
+    font-size:clamp(22px,3vw,30px); line-height:1.45; color:var(--ink);
+    margin:0 0 24px; padding-left:24px; border-left:3px solid var(--forest);
+  }
+  .thesis p{ font-size:15.5px; color:var(--ink-soft); line-height:1.75; margin-bottom:16px; }
+  .thesis p:last-child{ margin-bottom:0; }
+
+  /* services teaser */
+  .service-grid{ display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  .service-card{
+    background:var(--card); border:1px solid var(--line); border-radius:14px; padding:32px;
+    display:flex; flex-direction:column; height:100%;
+  }
+  .service-card.featured{ background:var(--forest); color:var(--paper); border-color:var(--forest); }
+  .service-tag{ font-family:var(--font-mono); font-size:10.5px; letter-spacing:0.06em; text-transform:uppercase; color:var(--forest-light); margin-bottom:14px; }
+  .service-card.featured .service-tag{ color:var(--gold); }
+  .service-card h3{ font-size:21px; margin-bottom:12px; }
+  .service-card p{ font-size:14px; color:var(--ink-soft); line-height:1.7; margin-bottom:20px; flex:1; }
+  .service-card.featured p{ color:rgba(247,243,234,0.8); }
+  .service-list{ list-style:none; padding:0; margin:0 0 24px; display:flex; flex-direction:column; gap:9px; }
+  .service-list li{ font-size:13.5px; color:var(--ink-soft); padding-left:18px; position:relative; }
+  .service-card.featured .service-list li{ color:rgba(247,243,234,0.85); }
+  .service-list li::before{ content:'—'; position:absolute; left:0; color:var(--forest-light); }
+  .service-card.featured .service-list li::before{ color:var(--gold); }
+  .service-price{ font-family:var(--font-mono); font-size:13px; margin-bottom:18px; }
+  .service-price b{ font-size:20px; }
+
+  @media (max-width:780px){ .service-grid{ grid-template-columns:1fr; } }
+
+  /* case study teaser */
+  .case-teaser{
+    display:grid; grid-template-columns:1fr 1fr; gap:0;
+    background:var(--card); border:1px solid var(--line); border-radius:16px; overflow:hidden;
+  }
+  .case-teaser-img{ aspect-ratio:4/3; overflow:hidden; }
+  .case-teaser-img img{ width:100%; height:100%; object-fit:cover; }
+  .case-teaser-body{ padding:44px 40px; display:flex; flex-direction:column; justify-content:center; }
+  .case-teaser-body .eyebrow{ margin-bottom:16px; }
+  .case-teaser-body h3{ font-size:clamp(24px,3vw,32px); margin-bottom:16px; line-height:1.15; }
+  .case-teaser-body p{ font-size:14.5px; color:var(--ink-soft); line-height:1.7; margin-bottom:24px; }
+  .case-teaser-stats{ display:flex; gap:24px; margin-bottom:28px; flex-wrap:wrap; }
+  .case-teaser-stats div{ font-family:var(--font-mono); font-size:11px; color:var(--ink-faint); text-transform:uppercase; letter-spacing:0.04em; }
+  .case-teaser-stats b{ display:block; font-family:var(--font-display); font-size:22px; color:var(--forest); letter-spacing:0; text-transform:none; }
+  @media (max-width:780px){ .case-teaser{ grid-template-columns:1fr; } .case-teaser-body{ padding:32px 24px; } }
+
+  /* pickleball callout */
+  .pb-callout{
+    background:var(--forest-deep); color:var(--paper); border-radius:16px;
+    padding:48px 44px; text-align:center;
+  }
+  .pb-callout .eyebrow{ color:var(--gold); }
+  .pb-callout h2{ font-size:clamp(26px,3.4vw,36px); margin:14px 0 16px; color:var(--paper); }
+  .pb-callout p{ font-size:15px; color:rgba(247,243,234,0.78); max-width:520px; margin:0 auto 28px; line-height:1.7; }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a class="nav-brand" href="/">
+      <span class="nav-brand-mark">JC</span>
+      <span class="nav-brand-name">James Castillo</span>
+    </a>
+    <div class="nav-links">
+      <a href="/" class="active">Home</a>
+      <a href="/case-study/">Case Study</a>
+      <a href="/services/">Services</a>
+      <a href="/contact/">Contact</a>
+    </div>
+    <a class="nav-cta" href="/contact/">Let's Talk</a>
+    <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="hero-grid">
+      <div class="reveal">
+        <span class="eyebrow">Systems, Automation &amp; Custom Software</span>
+        <h1>I don't sell software.<br>I fix what's <em>actually</em> broken.</h1>
+        <p class="lede">Most businesses don't need more tools — they need better systems. I help teams streamline operations and automate the busywork. When the fix calls for something no off-the-shelf tool can do, I build it myself, from scratch.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="/case-study/">See the Case Study →</a>
+          <a class="btn btn-ghost" href="/contact/">Work With Me</a>
+        </div>
+      </div>
+      <div class="hero-photo-wrap reveal">
+        <div class="hero-photo">
+          <img src="/assets/james-hero.jpg" alt="James Castillo">
+        </div>
+        <div class="hero-badge">
+          <div class="n">$4,000+</div>
+          <div class="l">Custom Builds, From</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stat-strip reveal">
+      <div class="stat"><div class="num"><span data-count="36" data-suffix="+">0</span></div><div class="lbl">Active Members Onboarded</div></div>
+      <div class="stat"><div class="num"><span data-count="205" data-suffix="+">0</span></div><div class="lbl">Check-Ins Tracked</div></div>
+      <div class="stat"><div class="num">0</div><div class="lbl">Google Forms Left Running</div></div>
+      <div class="stat"><div class="num"><span data-count="1">0</span></div><div class="lbl">Platform Built From Scratch</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="thesis reveal">
+      <div class="section-head" style="margin-bottom:24px;">
+        <span class="eyebrow">The Short Version</span>
+      </div>
+      <blockquote>"Most businesses don't need more software. They need better systems."</blockquote>
+      <p>That's the thesis I've operated on for years — first as a Podcast Producer and Chief of Operations managing moving parts, client workflows, and backend support, then as an operations and automation specialist helping businesses fix the parts of their backend that quietly waste time: missed leads, forgotten follow-ups, manual busywork that should already run itself.</p>
+      <p>Usually, the fix is a better system — a CRM properly configured, a workflow automated, a process finally written down. But sometimes the honest answer is that no off-the-shelf tool actually fits the problem. That's when I build custom software instead — same operational thinking, just executed in code.</p>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:0;">
+    <div class="section-head reveal">
+      <span class="eyebrow">Proof of Work</span>
+      <h2>One Cavite Pickleball Club</h2>
+      <p>A growing 30+ member pickleball club was running entirely on Google Forms, group chats, and spreadsheets — signups, merch orders, attendance, everything. I designed and built a complete web platform from the ground up to replace all of it.</p>
+    </div>
+    <div class="case-teaser reveal">
+      <div class="case-teaser-img">
+        <img src="/assets/screenshots/home_crop.jpg" alt="One Cavite Pickleball Club homepage">
+      </div>
+      <div class="case-teaser-body">
+        <span class="eyebrow">Break Through Case Study</span>
+        <h3>A club platform built entirely from scratch.</h3>
+        <p>Membership accounts, a live merch shop with cart and checkout, attendance-based leaderboards, an admin dashboard, automated emails — all running on a lean, fast, dependency-light stack I chose deliberately.</p>
+        <div class="case-teaser-stats">
+          <div><b>12+</b>Pages Built</div>
+          <div><b>7</b>Firestore Collections</div>
+          <div><b>0</b>Monthly Software Fees*</div>
+        </div>
+        <a class="btn btn-primary" href="/case-study/">Read the Full Breakdown →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:0;">
+    <div class="section-head reveal">
+      <span class="eyebrow">How I Can Help</span>
+      <h2>Two ways to fix what's broken.</h2>
+      <p>Depending on what your business actually needs — not what sounds impressive.</p>
+    </div>
+    <div class="service-grid reveal">
+      <div class="service-card">
+        <div class="service-tag">Option 1</div>
+        <h3>Systems &amp; Automation</h3>
+        <p>For businesses whose backend just needs to be configured properly — not rebuilt from zero.</p>
+        <ul class="service-list">
+          <li>CRM setup &amp; optimization (GoHighLevel)</li>
+          <li>Sales pipeline &amp; workflow automation</li>
+          <li>Lead capture &amp; follow-up systems</li>
+          <li>Appointment booking &amp; onboarding flows</li>
+        </ul>
+        <a class="btn btn-ghost btn-sm" href="/services/">See This Service →</a>
+      </div>
+      <div class="service-card featured">
+        <div class="service-tag">Option 2</div>
+        <h3>Custom Web &amp; Software Development</h3>
+        <p>For businesses that have outgrown spreadsheets and Google Forms, and need something built specifically for how they actually operate.</p>
+        <div class="service-price">Starting at <b>$4,000</b> — fully customizable to scope</div>
+        <ul class="service-list">
+          <li>Full custom-built platforms, like OCPC</li>
+          <li>Member/customer portals &amp; dashboards</li>
+          <li>Order, booking, or membership systems</li>
+        </ul>
+        <a class="btn btn-ghost-light btn-sm" href="/services/">See This Service →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:0;">
+    <div class="pb-callout reveal">
+      <span class="eyebrow">Run a Sports Club or Community Org?</span>
+      <h2>I can build you something like this.</h2>
+      <p>If OCPC's platform looks like what your club, league, or community needs — membership accounts, merch orders, attendance tracking, a real admin backend — I can build the same foundation for you, customized to how your group actually runs.</p>
+      <a class="btn btn-primary" href="/contact/">Start the Conversation →</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <div class="foot-brand">James Castillo</div>
+        <div class="foot-brand-sub">Systems &amp; automation specialist, and builder of custom software when off-the-shelf tools aren't enough.</div>
+      </div>
+      <div class="foot-links">
+        <a href="/">Home</a>
+        <a href="/case-study/">Case Study</a>
+        <a href="/services/">Services</a>
+        <a href="/contact/">Contact</a>
+        <a href="https://www.linkedin.com/in/jeymskastilyo/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 James Castillo</span>
+      <span>Based remotely · Working with clients in PH, US, Canada &amp; Australia</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — James Castillo</title>
+<meta name="description" content="Get in touch to talk about fixing your operations — through better systems or custom-built software.">
+<link rel="stylesheet" href="/styles.css">
+<style>
+  .ct-wrap{ padding:56px 0 80px; display:grid; grid-template-columns:1fr 0.85fr; gap:64px; }
+  .ct-left h1{ font-size:clamp(32px,4.6vw,48px); letter-spacing:-0.015em; line-height:1.1; margin:18px 0 20px; }
+  .ct-left p.lede{ font-size:16px; color:var(--ink-soft); line-height:1.75; max-width:480px; margin-bottom:36px; }
+
+  .ct-card{ background:var(--card); border:1px solid var(--line); border-radius:14px; padding:30px 32px; margin-bottom:16px; }
+  .ct-card .lbl{ font-family:var(--font-mono); font-size:10.5px; letter-spacing:0.06em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:8px; }
+  .ct-card .val{ font-size:17px; font-weight:600; }
+  .ct-card a.val{ text-decoration:none; color:var(--forest); }
+  .ct-card a.val:hover{ text-decoration:underline; }
+
+  .ct-checklist{ margin-top:40px; }
+  .ct-checklist h4{ font-size:14px; font-family:var(--font-mono); text-transform:uppercase; letter-spacing:0.05em; color:var(--ink-faint); margin-bottom:16px; }
+  .ct-checklist ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px; }
+  .ct-checklist li{ display:flex; gap:12px; font-size:14px; color:var(--ink-soft); line-height:1.6; }
+  .ct-checklist li::before{ content:'✓'; color:var(--forest); font-weight:700; flex-shrink:0; }
+
+  .ct-right{ background:var(--forest-deep); color:var(--paper); border-radius:16px; padding:40px 36px; }
+  .ct-right .eyebrow{ color:var(--gold); margin-bottom:16px; }
+  .ct-right h3{ font-size:24px; color:var(--paper); margin-bottom:16px; line-height:1.25; }
+  .ct-right p{ font-size:14px; color:rgba(247,243,234,0.78); line-height:1.7; margin-bottom:24px; }
+  .ct-right .price{ font-family:var(--font-mono); background:rgba(247,243,234,0.08); border:1px solid rgba(247,243,234,0.18); border-radius:10px; padding:16px 18px; margin-bottom:28px; }
+  .ct-right .price .amt{ font-family:var(--font-display); font-size:24px; display:block; color:var(--paper); }
+  .ct-right .price .note{ font-size:11px; text-transform:uppercase; letter-spacing:0.04em; color:rgba(247,243,234,0.6); }
+  .ct-right .btn{ width:100%; justify-content:center; }
+
+  @media (max-width:860px){
+    .ct-wrap{ grid-template-columns:1fr; gap:40px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a class="nav-brand" href="/">
+      <span class="nav-brand-mark">JC</span>
+      <span class="nav-brand-name">James Castillo</span>
+    </a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/case-study/">Case Study</a>
+      <a href="/services/">Services</a>
+      <a href="/contact/" class="active">Contact</a>
+    </div>
+    <a class="nav-cta" href="/contact/">Let's Talk</a>
+    <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="ct-wrap">
+    <div class="ct-left reveal">
+      <span class="eyebrow">Get In Touch</span>
+      <h1>Let's talk about what's actually broken.</h1>
+      <p class="lede">Tell me what's happening in your operation, not what you think needs to be built — I'll tell you honestly whether that's a systems fix or a custom build.</p>
+
+      <div class="ct-card">
+        <div class="lbl">Email</div>
+        <a class="val" href="mailto:jeymskastilyo@gmail.com">jeymskastilyo@gmail.com</a>
+      </div>
+      <div class="ct-card">
+        <div class="lbl">LinkedIn</div>
+        <a class="val" href="https://www.linkedin.com/in/jeymskastilyo/" target="_blank" rel="noopener">linkedin.com/in/jeymskastilyo</a>
+      </div>
+
+      <div class="ct-checklist">
+        <h4>To speed things up, include:</h4>
+        <ul>
+          <li>What's currently happening — the actual workflow, not the solution you have in mind</li>
+          <li>Roughly how big your team or organization is</li>
+          <li>Any timeline you're working against</li>
+          <li>Ballpark budget, if you have one in mind</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ct-right reveal">
+      <span class="eyebrow">Considering a Custom Build?</span>
+      <h3>See the OCPC case study before you reach out.</h3>
+      <p>It's the clearest picture of how I think through a build, page by page — from the problem, to the architecture, to the result.</p>
+      <div class="price">
+        <span class="amt">$4,000+</span>
+        <span class="note">Custom Builds, Fully Scoped to You</span>
+      </div>
+      <a class="btn btn-ghost-light" href="/case-study/">Read the Case Study →</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <div class="foot-brand">James Castillo</div>
+        <div class="foot-brand-sub">Systems &amp; automation specialist, and builder of custom software when off-the-shelf tools aren't enough.</div>
+      </div>
+      <div class="foot-links">
+        <a href="/">Home</a>
+        <a href="/case-study/">Case Study</a>
+        <a href="/services/">Services</a>
+        <a href="/contact/">Contact</a>
+        <a href="https://www.linkedin.com/in/jeymskastilyo/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 James Castillo</span>
+      <span>Based remotely · Working with clients in PH, US, Canada &amp; Australia</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/script.js"></script>
+</body>
+</html>
