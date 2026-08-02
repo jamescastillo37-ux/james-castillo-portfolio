@@ -38,10 +38,12 @@
   .hero-badge .n{ font-family:var(--font-display); font-size:26px; color:var(--forest); line-height:1; }
   .hero-badge .l{ font-family:var(--font-mono); font-size:10.5px; letter-spacing:0.05em; text-transform:uppercase; color:var(--ink-faint); margin-top:4px; }
 
+
   @media (max-width:900px){
     .hero-grid{ grid-template-columns:1fr; }
     .hero-photo-wrap{ max-width:320px; margin:0 auto; }
   }
+
 
   /* stat strip */
   .stat-strip{
@@ -58,6 +60,7 @@
     .stat-strip .stat:nth-child(2){ border-right:none; }
   }
 
+
   /* thesis */
   .thesis{ max-width:760px; }
   .thesis blockquote{
@@ -67,6 +70,7 @@
   }
   .thesis p{ font-size:15.5px; color:var(--ink-soft); line-height:1.75; margin-bottom:16px; }
   .thesis p:last-child{ margin-bottom:0; }
+
 
   /* services teaser */
   .service-grid{ display:grid; grid-template-columns:1fr 1fr; gap:20px; }
@@ -88,7 +92,9 @@
   .service-price{ font-family:var(--font-mono); font-size:13px; margin-bottom:18px; }
   .service-price b{ font-size:20px; }
 
+
   @media (max-width:780px){ .service-grid{ grid-template-columns:1fr; } }
+
 
   /* case study teaser */
   .case-teaser{
@@ -106,6 +112,7 @@
   .case-teaser-stats b{ display:block; font-family:var(--font-display); font-size:22px; color:var(--forest); letter-spacing:0; text-transform:none; }
   @media (max-width:780px){ .case-teaser{ grid-template-columns:1fr; } .case-teaser-body{ padding:32px 24px; } }
 
+
   /* pickleball callout */
   .pb-callout{
     background:var(--forest-deep); color:var(--paper); border-radius:16px;
@@ -117,6 +124,7 @@
 </style>
 </head>
 <body>
+
 
 <nav class="site-nav">
   <div class="wrap">
@@ -134,6 +142,7 @@
     <button class="nav-toggle" aria-label="Toggle menu">☰</button>
   </div>
 </nav>
+
 
 <div class="wrap">
   <div class="hero">
@@ -158,13 +167,15 @@
       </div>
     </div>
 
+
     <div class="stat-strip reveal">
-      <div class="stat"><div class="num"><span data-count="36" data-suffix="+">36+</span></div><div class="lbl">Active Members Onboarded</div></div>
-      <div class="stat"><div class="num"><span data-count="205" data-suffix="+">205+</span></div><div class="lbl">Check-Ins Tracked</div></div>
-      <div class="stat"><div class="num">0</div><div class="lbl">Google Forms Left Running</div></div>
-      <div class="stat"><div class="num"><span data-count="1">1</span></div><div class="lbl">Platform Built From Scratch</div></div>
+      <div class="stat"><div class="num"><span data-count="121">121</span></div><div class="lbl">Registered Members</div></div>
+      <div class="stat"><div class="num"><span data-count="205">205</span></div><div class="lbl">Attendance Check-Ins</div></div>
+      <div class="stat"><div class="num"><span data-count="13">13</span></div><div class="lbl">Merchandise Orders</div></div>
+      <div class="stat"><div class="num"><span data-count="5">5</span></div><div class="lbl">Coaching Bookings</div></div>
     </div>
   </div>
+
 
   <div class="section">
     <div class="thesis reveal">
@@ -177,29 +188,31 @@
     </div>
   </div>
 
+
   <div class="section" style="padding-top:0;">
     <div class="section-head reveal">
       <span class="eyebrow">Selected Work</span>
       <h2>One Cavite Pickleball Club</h2>
-      <p>A growing 30+ member pickleball club was running entirely on Google Forms, group chats, and spreadsheets. Signups, merch orders, attendance, everything. I designed and built a complete web platform from the ground up to replace all of it.</p>
+      <p>OCPC relied on group chats, scattered spreadsheets and notes, while orders and coaching requests arrived through Facebook Messenger. I designed and built one platform that now supports 121 registered members and serves players, officers, spectators, and the wider community.</p>
     </div>
     <div class="case-teaser reveal">
       <div class="case-teaser-img">
         <img src="assets/screenshots/home_hero.jpg" alt="One Cavite Pickleball Club homepage">
       </div>
       <div class="case-teaser-body">
-        <span class="eyebrow">Break Through Case Study</span>
+        <span class="eyebrow">Live Client Case Study</span>
         <h3>A club platform built entirely from scratch.</h3>
-        <p>Membership accounts, a live merch shop with cart and checkout, attendance-based leaderboards, an admin dashboard, and automated emails. All running on a lean, fast stack I chose deliberately.</p>
+        <p>Led internally through my role as OCPC Vice President and Head of Tech and Social Media, this was also a compensated build. It has been actively used for several months for membership, attendance, merchandise, coaching, schedules, featured courts, and community experiences.</p>
         <div class="case-teaser-stats">
-          <div><b>12+</b>Pages Built</div>
-          <div><b>7</b>Firestore Collections</div>
-          <div><b>0</b>Monthly Software Fees*</div>
+          <div><b>121</b>Registered Members</div>
+          <div><b>205</b>Attendance Check-Ins</div>
+          <div><b>13</b>Merchandise Orders</div>
         </div>
         <a class="btn btn-primary" href="case-study/">Read the Full Breakdown →</a>
       </div>
     </div>
   </div>
+
 
   <div class="section" style="padding-top:0;">
     <div class="section-head reveal">
@@ -235,6 +248,7 @@
     </div>
   </div>
 
+
   <div class="section" style="padding-top:0;">
     <div class="pb-callout reveal">
       <span class="eyebrow">Run a Sports Club or Community Org?</span>
@@ -244,6 +258,7 @@
     </div>
   </div>
 </div>
+
 
 <footer>
   <div class="wrap">
@@ -266,6 +281,7 @@
     </div>
   </div>
 </footer>
+
 
 <script src="script.js"></script>
 </body>
