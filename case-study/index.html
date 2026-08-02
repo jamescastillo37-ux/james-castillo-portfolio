@@ -19,8 +19,10 @@
   .cs-meta-row div{ font-family:var(--font-mono); font-size:10.5px; letter-spacing:0.05em; text-transform:uppercase; color:var(--ink-faint); }
   .cs-meta-row b{ display:block; font-family:var(--font-body); font-size:14px; font-weight:600; color:var(--ink); text-transform:none; letter-spacing:0; margin-top:4px; }
 
+
   .cs-hero-img{ border-radius:16px; overflow:hidden; border:1px solid var(--line); margin:32px 0 0; box-shadow:0 24px 48px rgba(20,46,34,0.12); }
   .cs-hero-img img{ width:100%; display:block; }
+
 
   /* two-col problem/approach */
   .cs-split{ display:grid; grid-template-columns:1fr 1fr; gap:40px; }
@@ -31,6 +33,7 @@
   .cs-split-card ul{ margin:0; padding-left:20px; }
   .cs-split-card li{ font-size:14px; color:var(--ink-soft); line-height:1.8; }
   @media (max-width:800px){ .cs-split{ grid-template-columns:1fr; } }
+
 
   /* feature breakdown accordion-ish list */
   .feature-block{ border-top:1.5px solid var(--line); padding:36px 0; }
@@ -48,6 +51,7 @@
   .feature-img{ border-radius:12px; overflow:hidden; border:1px solid var(--line); align-self:start; }
   @media (max-width:800px){ .feature-block-grid{ grid-template-columns:1fr; } .feature-img{ order:-1; } }
 
+
   /* page list */
   .page-list{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
   .page-item{ background:var(--card); border:1px solid var(--line); border-radius:10px; padding:18px 20px; }
@@ -56,6 +60,7 @@
   @media (max-width:800px){ .page-list{ grid-template-columns:1fr 1fr; } }
   @media (max-width:520px){ .page-list{ grid-template-columns:1fr; } }
 
+
   /* stack */
   .stack-row{ display:flex; flex-wrap:wrap; gap:10px; }
   .stack-chip{
@@ -63,12 +68,14 @@
     padding:9px 16px; border-radius:100px; background:var(--forest-deep); color:var(--paper);
   }
 
+
   /* results */
   .result-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
   .result-card{ background:var(--forest); color:var(--paper); border-radius:14px; padding:26px 20px; text-align:center; }
   .result-card .n{ font-family:var(--font-display); font-size:32px; }
   .result-card .l{ font-family:var(--font-mono); font-size:10px; letter-spacing:0.05em; text-transform:uppercase; color:rgba(247,243,234,0.65); margin-top:6px; }
   @media (max-width:800px){ .result-grid{ grid-template-columns:1fr 1fr; } }
+
 
   .quote-block{
     max-width:720px; margin:0 auto; text-align:center;
@@ -79,12 +86,14 @@
   }
   .quote-block cite{ font-family:var(--font-mono); font-size:12px; letter-spacing:0.04em; text-transform:uppercase; color:var(--ink-faint); font-style:normal; }
 
+
   .cta-final{ background:var(--forest-deep); color:var(--paper); border-radius:16px; padding:52px 44px; text-align:center; }
   .cta-final h2{ font-size:clamp(26px,3.4vw,36px); color:var(--paper); margin-bottom:16px; }
   .cta-final p{ font-size:15px; color:rgba(247,243,234,0.78); max-width:520px; margin:0 auto 28px; line-height:1.7; }
 </style>
 </head>
 <body>
+
 
 <nav class="site-nav">
   <div class="wrap">
@@ -103,46 +112,53 @@
   </div>
 </nav>
 
+
 <div class="wrap">
 
+
   <div class="cs-hero reveal">
-    <span class="eyebrow">Break Through Case Study</span>
+    <span class="eyebrow">Live Client Case Study</span>
     <h1>How I built a complete club platform for One Cavite Pickleball Club, from scratch.</h1>
-    <p class="lede">A fast-growing pickleball club in Cavite, Philippines was running on Google Forms, group chats, and spreadsheets. I designed and built a full web platform to replace all of it: membership, commerce, attendance, and an admin backend the club actually controls.</p>
+    <p class="lede">OCPC was coordinating through group chats, scattered spreadsheets and notes, while orders and coaching requests came through Facebook Messenger. I designed and built one actively used platform for members, officers, players, spectators, and the broader community.</p>
+
 
     <div class="cs-meta-row">
-      <div>Role<b>Sole Designer &amp; Developer</b></div>
-      <div>Timeline<b>Ongoing, Iterative Builds</b></div>
+      <div>Role<b>VP, Head of Tech &amp; Social Media; Sole Designer &amp; Developer</b></div>
+      <div>Engagement<b>Internally Led &amp; Compensated</b></div>
+      <div>Status<b>Live for Several Months</b></div>
       <div>Stack<b>Firebase, Vanilla JS, Cloudinary</b></div>
       <div>Live Site<b><a href="https://www.onecavitepickleball.club" target="_blank" rel="noopener" style="color:var(--forest); text-decoration:underline;">onecavitepickleball.club ↗</a></b></div>
     </div>
   </div>
 
+
   <div class="cs-hero-img reveal">
     <img src="../assets/screenshots/home_hero.jpg" alt="One Cavite Pickleball Club homepage">
   </div>
+
 
   <div class="section">
     <div class="cs-split reveal">
       <div class="cs-split-card">
         <div class="tag">The Problem</div>
         <h3>Growth had outpaced the tools.</h3>
-        <p>OCPC started the way most community clubs do: a Facebook group and word of mouth. But as membership grew past 30 active players, the cracks showed:</p>
+        <p>Before the platform, OCPC had no central operating system. Group chats, messy Excel sheets, and notepad records carried the administrative load, while Facebook Messenger handled merchandise orders and coaching requests. As the community grew, the cracks showed:</p>
         <ul>
-          <li>Signups and merch orders both ran through separate Google Forms with no connection to each other</li>
-          <li>Attendance was tracked by hand, with no reliable way to rank or reward regular players</li>
-          <li>Merch payments had to be checked one by one, with no record of who'd paid or what shipped</li>
-          <li>There was no admin view of the club at all: no membership list, no order history, nothing in one place</li>
+          <li>Member information was scattered across chats, spreadsheets, and personal notes</li>
+          <li>Attendance was tracked manually, without one reliable history</li>
+          <li>Merchandise orders and coaching inquiries could get buried in Messenger threads</li>
+          <li>Players and spectators had no single place to check schedules, courts, or community information</li>
         </ul>
       </div>
       <div class="cs-split-card">
         <div class="tag">The Approach</div>
         <h3>Systems thinking, applied to code.</h3>
         <p>I looked at this the same way I'd look at a business's backend: map out every real workflow first, then figure out what actually needed automating versus what needed to be built from scratch.</p>
-        <p>Google Forms couldn't be configured into what OCPC actually needed. So instead of piling on more forms and spreadsheets, I designed and built a real application: player accounts, a live shop, attendance-driven leaderboards, and an admin dashboard the club's own officers could run without me.</p>
+        <p>No off-the-shelf setup matched the way the club actually worked. I designed and built a real application: player accounts, a live shop, attendance-driven leaderboards, coaching requests, an admin dashboard, open-play schedules, featured courts, and community experiences such as the pickleball personality quiz.</p>
       </div>
     </div>
   </div>
+
 
   <div class="section" style="padding-top:0;">
     <div class="section-head reveal">
@@ -150,6 +166,7 @@
       <h2>A full-featured platform, page by page.</h2>
       <p>Every feature below is live in production, not a prototype. Screenshots are from the real site, with member names and order amounts blurred out.</p>
     </div>
+
 
     <div class="feature-block reveal">
       <div class="feature-block-head">
@@ -174,6 +191,7 @@
       </div>
     </div>
 
+
     <div class="feature-block reveal">
       <div class="feature-block-head">
         <span class="feature-num">02</span>
@@ -196,6 +214,7 @@
       </div>
     </div>
 
+
     <div class="feature-block reveal">
       <div class="feature-block-head">
         <span class="feature-num">03</span>
@@ -216,6 +235,7 @@
         </div>
       </div>
     </div>
+
 
     <div class="feature-block reveal">
       <div class="feature-block-head">
@@ -238,6 +258,7 @@
       </div>
     </div>
 
+
     <div class="feature-block reveal">
       <div class="feature-block-head">
         <span class="feature-num">05</span>
@@ -258,6 +279,7 @@
       </div>
     </div>
 
+
     <div class="feature-block reveal">
       <div class="feature-block-head">
         <span class="feature-num">06</span>
@@ -276,6 +298,7 @@
         </div>
       </div>
     </div>
+
 
     <div class="feature-block reveal">
       <div class="feature-block-head">
@@ -296,6 +319,7 @@
         </div>
       </div>
     </div>
+
 
     <div class="feature-block reveal">
       <div class="feature-block-head">
@@ -321,6 +345,7 @@
     </div>
   </div>
 
+
   <div class="section" style="padding-top:0;">
     <div class="section-head reveal">
       <span class="eyebrow">Every Page, At a Glance</span>
@@ -343,6 +368,7 @@
     </div>
   </div>
 
+
   <div class="section" style="padding-top:0;">
     <div class="section-head reveal">
       <span class="eyebrow">Under the Hood</span>
@@ -357,9 +383,10 @@
       <span class="stack-chip">Cloudinary (image hosting)</span>
       <span class="stack-chip">EmailJS (transactional email)</span>
       <span class="stack-chip">Service Worker Caching</span>
-      <span class="stack-chip">GitHub Pages Hosting</span>
+      <span class="stack-chip">Vercel Hosting</span>
     </div>
   </div>
+
 
   <div class="section" style="padding-top:0;">
     <div class="section-head reveal">
@@ -367,19 +394,21 @@
       <h2>Zero forms. Zero spreadsheets. One system.</h2>
     </div>
     <div class="result-grid reveal">
-      <div class="result-card"><div class="n">36+</div><div class="l">Active Members</div></div>
-      <div class="result-card"><div class="n">205+</div><div class="l">Check-Ins Tracked</div></div>
-      <div class="result-card"><div class="n">4x</div><div class="l">Sessions / Week</div></div>
-      <div class="result-card"><div class="n">0</div><div class="l">Google Forms Remaining</div></div>
+      <div class="result-card"><div class="n">121</div><div class="l">Registered Members</div></div>
+      <div class="result-card"><div class="n">205</div><div class="l">Attendance Check-Ins</div></div>
+      <div class="result-card"><div class="n">13</div><div class="l">Merchandise Orders</div></div>
+      <div class="result-card"><div class="n">5</div><div class="l">Coaching Bookings</div></div>
     </div>
   </div>
 
+
   <div class="section">
     <div class="quote-block reveal">
-      <blockquote>"The same instinct that fixes a messy sales pipeline fixes a messy club sign-up process. See the real workflow first, then build the smallest system that actually works."</blockquote>
-      <cite>James Castillo</cite>
+      <blockquote>The platform replaced fragmented admin work with one community experience. Members and players get a clearer journey, while spectators can check open-play schedules, discover featured courts, and take the personality quiz.</blockquote>
+      <cite>Operational impact after several months live</cite>
     </div>
   </div>
+
 
   <div class="section" style="padding-top:0;">
     <div class="cta-final reveal">
@@ -390,7 +419,9 @@
     </div>
   </div>
 
+
 </div>
+
 
 <footer>
   <div class="wrap">
@@ -413,6 +444,7 @@
     </div>
   </div>
 </footer>
+
 
 <script src="../script.js"></script>
 </body>
