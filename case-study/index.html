@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Case Study: One Cavite Pickleball Club — James Castillo</title>
-<meta name="description" content="Full breakdown of how I designed and built a complete club management platform for One Cavite Pickleball Club — every page, workflow, and architectural decision.">
+<title>Case Study: One Cavite Pickleball Club, James Castillo</title>
+<meta name="description" content="A full breakdown of how I designed and built a complete club management platform for One Cavite Pickleball Club, page by page.">
 <link rel="stylesheet" href="../styles.css">
 <style>
   .cs-hero{ padding:56px 0 40px; max-width:820px; }
@@ -103,8 +103,8 @@
 
   <div class="cs-hero reveal">
     <span class="eyebrow">Break Through Case Study</span>
-    <h1>How I built a complete club platform for One Cavite Pickleball Club — from scratch.</h1>
-    <p class="lede">A fast-growing pickleball club in Cavite, Philippines, was running on Google Forms, group chats, and spreadsheets. I designed and built a full web platform to replace all of it — membership, commerce, attendance, and an admin backend the club actually controls.</p>
+    <h1>How I built a complete club platform for One Cavite Pickleball Club, from scratch.</h1>
+    <p class="lede">A fast-growing pickleball club in Cavite, Philippines was running on Google Forms, group chats, and spreadsheets. I designed and built a full web platform to replace all of it: membership, commerce, attendance, and an admin backend the club actually controls.</p>
 
     <div class="cs-meta-row">
       <div>Role<b>Sole Designer &amp; Developer</b></div>
@@ -115,7 +115,7 @@
   </div>
 
   <div class="cs-hero-img reveal">
-    <img src="../assets/screenshots/home_crop.jpg" alt="One Cavite Pickleball Club homepage">
+    <img src="../assets/screenshots/home_hero.jpg" alt="One Cavite Pickleball Club homepage">
   </div>
 
   <div class="section">
@@ -123,19 +123,19 @@
       <div class="cs-split-card">
         <div class="tag">The Problem</div>
         <h3>Growth had outpaced the tools.</h3>
-        <p>OCPC started the way most community clubs do — a Facebook group and word of mouth. But as membership grew past 30 active players, the cracks showed:</p>
+        <p>OCPC started the way most community clubs do: a Facebook group and word of mouth. But as membership grew past 30 active players, the cracks showed:</p>
         <ul>
           <li>Signups and merch orders both ran through separate Google Forms with no connection to each other</li>
-          <li>Attendance was tracked manually, with no reliable way to rank or reward regular players</li>
-          <li>Merch payments had to be verified by hand, with no record of who'd paid or what shipped</li>
-          <li>There was no admin view of the club — no membership list, no order history, nothing centralized</li>
+          <li>Attendance was tracked by hand, with no reliable way to rank or reward regular players</li>
+          <li>Merch payments had to be checked one by one, with no record of who'd paid or what shipped</li>
+          <li>There was no admin view of the club at all: no membership list, no order history, nothing in one place</li>
         </ul>
       </div>
       <div class="cs-split-card">
         <div class="tag">The Approach</div>
         <h3>Systems thinking, applied to code.</h3>
-        <p>I approached this exactly like I would a business operations audit — map every real workflow first, then decide what needed automating versus what needed to be built outright.</p>
-        <p>Google Forms couldn't be configured into what OCPC actually needed. So instead of duct-taping more forms and spreadsheets together, I designed and built a real application: player accounts, a live shop, attendance-driven leaderboards, and an admin dashboard non-technical club officers could run themselves.</p>
+        <p>I looked at this the same way I'd look at a business's backend: map out every real workflow first, then figure out what actually needed automating versus what needed to be built from scratch.</p>
+        <p>Google Forms couldn't be configured into what OCPC actually needed. So instead of piling on more forms and spreadsheets, I designed and built a real application: player accounts, a live shop, attendance-driven leaderboards, and an admin dashboard the club's own officers could run without me.</p>
       </div>
     </div>
   </div>
@@ -144,7 +144,7 @@
     <div class="section-head reveal">
       <span class="eyebrow">What Was Built</span>
       <h2>A full-featured platform, page by page.</h2>
-      <p>Every feature below is live in production — not a prototype.</p>
+      <p>Every feature below is live in production, not a prototype. Screenshots are from the real site, with member names and order amounts blurred out.</p>
     </div>
 
     <div class="feature-block reveal">
@@ -154,7 +154,7 @@
       </div>
       <div class="feature-block-grid">
         <div>
-          <p class="desc">A live homepage with the week's open-play schedule, a countdown to the next session, a real-time player spotlight pulled from attendance data, and an auto-rotating events section that archives past events by date without any manual editing.</p>
+          <p class="desc">A live homepage with the week's open-play schedule, a countdown to the next session, a real-time player spotlight pulled from attendance data, and an auto-rotating events section that archives past events by date with no manual editing needed. The Featured Courts page doubles as a pitch to court owners: host a session, get real player turnout, get featured here.</p>
           <div class="feature-tags">
             <span class="feature-tag">Meet the Club (dynamic roster)</span>
             <span class="feature-tag">Events (auto-archiving)</span>
@@ -165,7 +165,7 @@
           </div>
         </div>
         <div class="feature-img">
-          <img src="../assets/screenshots/home_crop.jpg" alt="OCPC homepage schedule and spotlight">
+          <img src="../assets/screenshots/featured_courts.jpg" alt="OCPC Featured Courts page with court owner partnership pitch">
         </div>
       </div>
     </div>
@@ -177,18 +177,17 @@
       </div>
       <div class="feature-block-grid">
         <div>
-          <p class="desc">Replaced a single-item Google Form order process with a real cart-based shop: browse products, add multiple items, review the cart, then check out once with cascading Philippine address fields, GCash/bank QR payment, discount codes, and proof-of-payment upload. Every order gets a sequential order number and an automatic email confirmation — and buyers can check payment/fulfillment status themselves without logging in.</p>
+          <p class="desc">Replaced a single-item Google Form order process with a real cart-based shop: browse products, add multiple items, review the cart, then check out once with cascading Philippine address fields, GCash/bank QR payment, discount codes, and proof-of-payment upload. Every order gets a sequential order number and an automatic email confirmation.</p>
           <div class="feature-tags">
             <span class="feature-tag">Product Catalog</span>
             <span class="feature-tag">Cart (localStorage)</span>
             <span class="feature-tag">Checkout</span>
             <span class="feature-tag">Discount Codes</span>
-            <span class="feature-tag">Order Tracking Page</span>
             <span class="feature-tag">Email Confirmations</span>
           </div>
         </div>
         <div class="feature-img">
-          <img src="../assets/screenshots/merch_crop.jpg" alt="OCPC merch shop catalog">
+          <img src="../assets/screenshots/gear_up.jpg" alt="OCPC merch shop catalog">
         </div>
       </div>
     </div>
@@ -200,16 +199,16 @@
       </div>
       <div class="feature-block-grid">
         <div>
-          <p class="desc">Officers log attendance by name; the system ranks the top players over a rolling 4-week window and shows each player their own stats, rank, and how many more sessions they need to move up. Real-world data is messy — people go by nicknames, shortened names, or names that don't match their registered account — so I built a reconciliation system that automatically merges obvious matches and lets admins manually link the rest, without ever touching raw attendance records.</p>
+          <p class="desc">Officers log attendance by name. The system ranks the top players over a rolling 4-week window and shows each player their own stats, rank, and how many more sessions they need to move up. Real names get messy in practice: people go by nicknames, shortened names, or names that don't match their registered account. I built a matching system that merges the obvious cases automatically and lets admins link the rest by hand, without ever touching the raw attendance log.</p>
           <div class="feature-tags">
             <span class="feature-tag">Rolling Leaderboard</span>
             <span class="feature-tag">Nickname/Alias Matching</span>
             <span class="feature-tag">Player Profile Stats</span>
-            <span class="feature-tag">Auto Name Reconciliation</span>
+            <span class="feature-tag">Auto Name Matching</span>
           </div>
         </div>
         <div class="feature-img">
-          <img src="../assets/screenshots/leaderboard_crop.jpg" alt="OCPC leaderboard podium">
+          <img src="../assets/screenshots/leaderboard.jpg" alt="OCPC leaderboard podium">
         </div>
       </div>
     </div>
@@ -217,20 +216,20 @@
     <div class="feature-block reveal">
       <div class="feature-block-head">
         <span class="feature-num">04</span>
-        <h3>Player Accounts</h3>
+        <h3>Player Accounts &amp; Community</h3>
       </div>
       <div class="feature-block-grid">
         <div>
-          <p class="desc">Free self-service signup with optional profile photo, a personal dashboard showing lifetime stats, an 8-week attendance chart, order history, and editable profile details including a preferred nickname — all backed by Firebase Authentication.</p>
+          <p class="desc">Free self-service signup with an optional profile photo, a personal dashboard showing lifetime stats, an 8-week attendance chart, order history, and a preferred nickname players can set themselves. Small touches like a birthday shoutout widget keep the site feeling like a club, not just a tool.</p>
           <div class="feature-tags">
             <span class="feature-tag">Self-Service Signup</span>
             <span class="feature-tag">Profile Dashboard</span>
             <span class="feature-tag">Order History</span>
-            <span class="feature-tag">Attendance Chart</span>
+            <span class="feature-tag">Birthday Shoutouts</span>
           </div>
         </div>
         <div class="feature-img">
-          <img src="../assets/screenshots/leaderboard_crop.jpg" alt="OCPC player stats">
+          <img src="../assets/screenshots/birthdays.jpg" alt="OCPC birthday shoutout widget, names and photos blurred">
         </div>
       </div>
     </div>
@@ -238,11 +237,70 @@
     <div class="feature-block reveal">
       <div class="feature-block-head">
         <span class="feature-num">05</span>
+        <h3>Coaching Bookings</h3>
+      </div>
+      <div class="feature-block-grid">
+        <div>
+          <p class="desc">Another Google Form replaced with a real request flow: pick a timeslot next to an existing open-play session, see the total cost calculated live (coaching rate plus court fee), and submit with payment reference and proof of payment attached. Requests land straight in the admin backend instead of a spreadsheet nobody checks.</p>
+          <div class="feature-tags">
+            <span class="feature-tag">Slot Selection</span>
+            <span class="feature-tag">Live Price Calculation</span>
+            <span class="feature-tag">Payment Proof Upload</span>
+          </div>
+        </div>
+        <div class="feature-img">
+          <img src="../assets/screenshots/coaching.jpg" alt="OCPC coaching booking page">
+        </div>
+      </div>
+    </div>
+
+    <div class="feature-block reveal">
+      <div class="feature-block-head">
+        <span class="feature-num">06</span>
+        <h3>Order Tracking</h3>
+      </div>
+      <div class="feature-block-grid">
+        <div>
+          <p class="desc">Buyers can look up their order by number and see its payment and fulfillment status without logging in. It's a small page, but it means players stop messaging the club page just to ask "did my order go through?"</p>
+          <div class="feature-tags">
+            <span class="feature-tag">Public Order Lookup</span>
+            <span class="feature-tag">Fulfillment Status</span>
+          </div>
+        </div>
+        <div class="feature-img">
+          <img src="../assets/screenshots/track_order.jpg" alt="OCPC public order tracking page">
+        </div>
+      </div>
+    </div>
+
+    <div class="feature-block reveal">
+      <div class="feature-block-head">
+        <span class="feature-num">07</span>
+        <h3>Live Court Queue Tool</h3>
+      </div>
+      <div class="feature-block-grid">
+        <div>
+          <p class="desc">A run-of-session tool for whoever's managing check-in: add players as they arrive, auto-fill or drag them onto a court by team, start the match timer, and log scores when a game wraps up. It runs entirely in the browser on one device, since that's how open play actually gets managed on the ground.</p>
+          <div class="feature-tags">
+            <span class="feature-tag">Drag &amp; Drop Court Assignment</span>
+            <span class="feature-tag">Match Timer</span>
+            <span class="feature-tag">Waiting Queue</span>
+          </div>
+        </div>
+        <div class="feature-img">
+          <img src="../assets/screenshots/court_queue.jpg" alt="OCPC court queue tool">
+        </div>
+      </div>
+    </div>
+
+    <div class="feature-block reveal">
+      <div class="feature-block-head">
+        <span class="feature-num">08</span>
         <h3>Admin Backend</h3>
       </div>
       <div class="feature-block-grid">
         <div>
-          <p class="desc">A full dashboard for club officers to run everything without ever touching code: order management with payment-proof thumbnails and status controls, coaching request handling, discount code creation, attendance recording, member approval and role management, and a settings panel to toggle a site-wide announcement banner on or off. Every order placed in one checkout is grouped together, so officers can see at a glance which products belong to the same purchase.</p>
+          <p class="desc">A full dashboard for club officers to run everything without touching code: order management with payment-proof thumbnails and status controls, coaching request handling, discount code creation, attendance recording, member approval and role management, and a settings panel to toggle a site-wide announcement banner. Every order placed in one checkout is grouped together, so officers can see at a glance which products belong to the same purchase.</p>
           <div class="feature-tags">
             <span class="feature-tag">Orders Dashboard</span>
             <span class="feature-tag">Member Management</span>
@@ -253,7 +311,7 @@
           </div>
         </div>
         <div class="feature-img">
-          <img src="../assets/screenshots/merch_crop.jpg" alt="OCPC shop, source for admin order data">
+          <img src="../assets/screenshots/admin_overview.jpg" alt="OCPC admin dashboard overview, revenue and customer names blurred">
         </div>
       </div>
     </div>
@@ -277,6 +335,7 @@
       <div class="page-item"><div class="name">Featured Courts</div><div class="desc">Partnership pitch page</div></div>
       <div class="page-item"><div class="name">Join / Sign Up</div><div class="desc">Account creation</div></div>
       <div class="page-item"><div class="name">Admin Dashboard</div><div class="desc">6-tab officer backend</div></div>
+      <div class="page-item"><div class="name">Court Queue</div><div class="desc">Live check-in and match tool</div></div>
     </div>
   </div>
 
@@ -284,7 +343,7 @@
     <div class="section-head reveal">
       <span class="eyebrow">Under the Hood</span>
       <h2>A deliberately lean stack.</h2>
-      <p>No framework overhead, no unnecessary dependencies — chosen for speed to ship and low ongoing cost, the same way I'd choose tools for any operations build.</p>
+      <p>No framework overhead, no dependencies I didn't need. I picked these tools for speed to ship and low ongoing cost, the same way I'd pick tools for any operations build.</p>
     </div>
     <div class="stack-row reveal">
       <span class="stack-chip">HTML / CSS / Vanilla JS</span>
@@ -313,8 +372,8 @@
 
   <div class="section">
     <div class="quote-block reveal">
-      <blockquote>"The same instinct that fixes a messy sales pipeline is the instinct that fixes a messy club sign-up process — see the real workflow, then build the smallest system that actually works."</blockquote>
-      <cite>— James Castillo</cite>
+      <blockquote>"The same instinct that fixes a messy sales pipeline fixes a messy club sign-up process. See the real workflow first, then build the smallest system that actually works."</blockquote>
+      <cite>James Castillo</cite>
     </div>
   </div>
 
@@ -322,7 +381,7 @@
     <div class="cta-final reveal">
       <span class="eyebrow" style="color:var(--gold);">Want Something Like This?</span>
       <h2>Let's talk about what your operation actually needs.</h2>
-      <p>Whether that's a properly configured CRM or a fully custom platform like this one — I'll tell you honestly which one it is.</p>
+      <p>Whether that's a properly configured CRM or a fully custom platform like this one, I'll tell you honestly which one it is.</p>
       <a class="btn btn-primary" href="../contact/">Start the Conversation →</a>
     </div>
   </div>
