@@ -16,6 +16,8 @@
   .ct-left p.lede{ font-size:16px; color:var(--ink-soft); line-height:1.75; max-width:480px; margin-bottom:36px; }
 
 
+
+
   .ct-card{ background:var(--card); border:1px solid var(--line); border-radius:14px; padding:24px 28px; margin-bottom:16px; }
   .ct-card .lbl{ font-family:var(--font-mono); font-size:10.5px; letter-spacing:0.06em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:8px; }
   .ct-card .val-row{ display:flex; align-items:center; justify-content:space-between; gap:12px; }
@@ -31,11 +33,15 @@
   .copy-btn.copied{ background:var(--forest); color:var(--paper); }
 
 
+
+
   .ct-checklist{ margin-top:40px; }
   .ct-checklist h4{ font-size:14px; font-family:var(--font-mono); text-transform:uppercase; letter-spacing:0.05em; color:var(--ink-faint); margin-bottom:16px; }
   .ct-checklist ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px; }
   .ct-checklist li{ display:flex; gap:12px; font-size:14px; color:var(--ink-soft); line-height:1.6; }
   .ct-checklist li::before{ content:'✓'; color:var(--forest); font-weight:700; flex-shrink:0; }
+
+
 
 
   .ct-right{ background:var(--forest-deep); color:var(--paper); border-radius:16px; padding:40px 36px; }
@@ -48,9 +54,13 @@
   .ct-right .btn{ width:100%; justify-content:center; }
 
 
+
+
   @media (max-width:860px){
     .ct-wrap{ grid-template-columns:1fr; gap:40px; }
   }
+
+
 
 
   /* Start CTA panel */
@@ -60,6 +70,8 @@
   }
   .start-cta h2{ font-size:clamp(22px,3vw,28px); margin-bottom:10px; }
   .start-cta p{ font-size:14.5px; color:var(--ink-soft); max-width:460px; margin:0 auto 22px; line-height:1.65; }
+
+
 
 
   /* Pre-qualify form */
@@ -84,6 +96,8 @@
   @media (max-width:600px){ .pq-row{ grid-template-columns:1fr; } }
 
 
+
+
   /* Success + Calendly */
   #pq-success{ display:none; text-align:center; }
   #pq-success h2{ font-size:clamp(22px,3vw,28px); margin-bottom:10px; }
@@ -94,6 +108,8 @@
 </style>
 </head>
 <body>
+
+
 
 
 <nav class="site-nav">
@@ -114,12 +130,16 @@
 </nav>
 
 
+
+
 <div class="wrap">
   <div class="ct-wrap">
     <div class="ct-left reveal">
       <span class="eyebrow">Get In Touch</span>
-      <h1>Let's talk about what's actually broken.</h1>
-      <p class="lede">Tell me what's happening in your operation, not what you think needs to be built. I'll tell you honestly whether that's a systems fix or a custom build.</p>
+      <h1>Tell me where the work gets stuck.</h1>
+      <p class="lede">Share the part of your operation that feels manual, scattered, or harder than it should be. I’ll help determine whether the right next step is a process fix, automation, or a custom build.</p>
+
+
 
 
       <div class="ct-card">
@@ -135,6 +155,8 @@
       </div>
 
 
+
+
       <div class="ct-checklist">
         <h4>No project brief required yet.</h4>
         <ul>
@@ -146,10 +168,12 @@
     </div>
 
 
+
+
     <div class="ct-right reveal">
       <span class="eyebrow">Considering a Custom Build?</span>
-      <h3>See the OCPC case study before you reach out.</h3>
-      <p>It's the clearest picture of how I think through a build, page by page, from the problem to the result.</p>
+      <h3>See how a fragmented workflow became one live platform.</h3>
+      <p>The OCPC case study shows how I move from operational problem to working product—and the real usage it supports today.</p>
       <div class="price">
         <span class="amt">$4,000+</span>
         <span class="note">Custom Builds, Fully Scoped to You</span>
@@ -159,19 +183,24 @@
   </div>
 
 
+
+
   <div class="section" style="padding-top:0;">
     <div class="start-cta reveal" id="start-cta">
       <span class="eyebrow">Ready to Talk?</span>
-      <h2>Start with a quick introduction.</h2>
-      <p>Share the essentials in about a minute. After you send it, you can book a discovery call directly on this page.</p>
+      <h2>Start with a one-minute introduction.</h2>
+      <p>No detailed brief yet. Share the essentials, then choose a discovery-call time directly on this page.</p>
       <button class="btn btn-primary" id="reveal-form-btn" type="button">Start the Conversation →</button>
     </div>
+
+
 
 
     <div id="pq-section">
       <form class="pq-form" id="pq-form" action="https://formspree.io/f/xqervnoz" method="POST">
         <h2>Tell me what you need help with.</h2>
         <p>Just the essentials for now. We can unpack the details before our call.</p>
+
 
         <div class="pq-row">
           <div class="pq-field">
@@ -184,25 +213,30 @@
           </div>
         </div>
 
+
         <div class="pq-field">
           <label for="pq-org">Business / Organization</label>
           <input type="text" id="pq-org" name="organization" autocomplete="organization">
         </div>
+
 
         <div class="pq-field">
           <label for="pq-website">Website or social page <span style="text-transform:none;">(optional)</span></label>
           <input type="url" id="pq-website" name="website" inputmode="url" placeholder="https://">
         </div>
 
+
         <div class="pq-field">
           <label for="pq-need">What do you need help with?</label>
           <textarea id="pq-need" name="project_need" required placeholder="A few sentences are enough. What feels messy, manual, disconnected, or ready to improve?"></textarea>
         </div>
 
+
         <input type="hidden" name="_subject" value="New portfolio lead">
         <button class="btn btn-primary pq-submit" type="submit">Send &amp; Book a Call →</button>
         <p class="pq-note">No budget or detailed brief required yet. I read every message myself.</p>
       </form>
+
 
       <div id="pq-success">
         <h2>Got it. Thanks for the details.</h2>
@@ -215,6 +249,8 @@
     </div>
   </div>
 </div>
+
+
 
 
 <footer>
@@ -240,6 +276,8 @@
 </footer>
 
 
+
+
 <script src="../script.js"></script>
 <script>
   document.getElementById('copy-email-btn').addEventListener('click', function(){
@@ -260,6 +298,8 @@
   });
 
 
+
+
   function fallbackCopy(text, onDone){
     var ta = document.createElement('textarea');
     ta.value = text;
@@ -272,12 +312,16 @@
   }
 
 
+
+
   document.getElementById('reveal-form-btn').addEventListener('click', function(){
     document.getElementById('start-cta').style.display = 'none';
     var section = document.getElementById('pq-section');
     section.style.display = 'block';
     section.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
+
+
 
 
   var pqForm = document.getElementById('pq-form');
@@ -287,6 +331,8 @@
     var submitBtn = pqForm.querySelector('.pq-submit');
     submitBtn.textContent = 'Sending...';
     submitBtn.disabled = true;
+
+
 
 
     fetch(pqForm.action, {
