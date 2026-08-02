@@ -179,3 +179,14 @@ footer{ background:var(--forest-deep); color:rgba(247,243,234,0.7); padding:56px
 @media (max-width:600px){
   .wrap{ padding:0 20px; }
 }
+
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  *, *::before, *::after{
+    animation-duration:0.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:0.01ms !important;
+    scroll-behavior:auto !important;
+  }
+  .reveal{ opacity:1; transform:none; }
+}
