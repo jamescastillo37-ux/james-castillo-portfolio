@@ -205,7 +205,7 @@
         <div class="pq-row">
           <div class="pq-field">
             <label for="pq-name">Name</label>
-            <input type="text" id="pq-name" name="name" autocomplete="name" required>
+            <input type="text" id="pq-name" name="name" autocomplete="name" minlength="2" required>
           </div>
           <div class="pq-field">
             <label for="pq-email">Email</label>
@@ -228,7 +228,7 @@
 
         <div class="pq-field">
           <label for="pq-need">What do you need help with?</label>
-          <textarea id="pq-need" name="project_need" required placeholder="A few sentences are enough. What feels messy, manual, disconnected, or ready to improve?"></textarea>
+          <textarea id="pq-need" name="project_need" minlength="10" required placeholder="A few sentences are enough. What feels messy, manual, disconnected, or ready to improve?"></textarea>
         </div>
 
 
@@ -326,8 +326,37 @@
 
   var pqForm = document.getElementById('pq-form');
   var calendlyLoaded = false;
+  var requiredTextFields = [
+    { field: document.getElementById('pq-name'), message: 'Please enter your name (at least 2 characters).' },
+    { field: document.getElementById('pq-need'), message: 'Please briefly describe what you need help with (at least 10 characters).' }
+  ];
+
+  requiredTextFields.forEach(function(item){
+    item.field.addEventListener('input', function(){
+      item.field.setCustomValidity('');
+    });
+  });
+
   pqForm.addEventListener('submit', function(e){
     e.preventDefault();
+
+    pqForm.querySelectorAll('input[type=\"text\"], input[type=\"email\"], input[type=\"url\"], textarea').forEach(function(field){
+      field.value = field.value.trim();
+      field.setCustomValidity('');
+    });
+
+    requiredTextFields.forEach(function(item){
+      var minimumLength = Number(item.field.getAttribute('minlength')) || 1;
+      if (item.field.value.length < minimumLength) {
+        item.field.setCustomValidity(item.message);
+      }
+    });
+
+    if (!pqForm.checkValidity()) {
+      pqForm.reportValidity();
+      return;
+    }
+
     var submitBtn = pqForm.querySelector('.pq-submit');
     submitBtn.textContent = 'Sending...';
     submitBtn.disabled = true;
